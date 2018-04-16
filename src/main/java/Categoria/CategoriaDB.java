@@ -2,6 +2,8 @@ package Categoria;
 
 import java.util.Hashtable;
 
+import usuario.Cliente;
+
 public class CategoriaDB {
 	private static Hashtable<Integer, Categoria> categorias;
 	private static int idContadorCategorias;
@@ -39,6 +41,29 @@ public class CategoriaDB {
 		categorias.remove(categoria);
 	}
 	
+	//para test
+	public Categoria getCategoria(int categoria_) {
+		return CategoriaDB.buscarCategoria(categoria_);
+	}
+	      //omitan esta anotacion , ni yo se por que
+	@SuppressWarnings("static-access")
+	public Categoria getCategoria(Cliente cliente) {
+		// TODO Auto-generated method stub
+		int categoria_ = cliente.getCategoriaNumerica();
+		return this.buscarCategoria(categoria_);
+		
+	}
+	public double obtenerGastosDe(Cliente cliente_) {
+		Categoria cat =  this.getCategoria(cliente_);
+		double gastosFijos = cat.getCargoFijo();
+		double gastoVariable = cat.getCargoVariableFactor();
+		gastoVariable=gastoVariable*cliente_.consumoDeEnergia1();	
+		return gastosFijos+gastoVariable;
+	}
+	
+	
+	
+	
 	
 	
 	//getters y setters
@@ -54,9 +79,14 @@ public class CategoriaDB {
 	public static void setIdContadorCategorias(int idContadorCategorias) {
 		CategoriaDB.idContadorCategorias = idContadorCategorias;
 	}
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 	}
+	
 
 }

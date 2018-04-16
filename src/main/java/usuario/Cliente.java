@@ -43,9 +43,11 @@ public class Cliente extends Usuario{
 		this.fechaDeAlta = new Fecha(dia, mes, anio);
 		this.dispositivos = dispositivos;
 	}
-	//CONSTRUCTOR SIMPLE PARA test
-	public Cliente() {
+	
+	public Cliente(String nombre_,String categoria_) {
 		// TODO Auto-generated constructor stub
+		this.nombre = nombre_;
+		categoria=categoria_;
 	}
 	
 	
@@ -68,7 +70,7 @@ public class Cliente extends Usuario{
 	public void cargarDispositivo(Dispositivo d) {
 		dispositivos.add(d);
 	}
-	public int dispositivos() {
+	public int cantidadDeDispositivos() {
 		return dispositivos.size();
 	}
 	
@@ -103,4 +105,52 @@ public class Cliente extends Usuario{
 	public int numeroDocumento() {
 		return documento.numero();
 	}
+	
+	
+	
+	
+	//PARA TEST
+	public double consumoDeEnergia1() {
+		// TODO Auto-generated method stub
+		return 100;
+	}
+	public double consumoDeEnergia9() {
+		return 1500;
+	}
+	public int getCategoriaNumerica() {
+		Character numeroDeCategoria = categoria.charAt(categoria.length() - 1);
+		return Character.getNumericValue(numeroDeCategoria);
+	}
+
+	
+	
+	//gettets y setters
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public List<Dispositivo> getDispositivos() {
+		return dispositivos;
+	}
+
+	public void setDispositivos(List<Dispositivo> dispositivos) {
+		this.dispositivos = dispositivos;
+	}
+	
+	
+	
+	
+	
 }

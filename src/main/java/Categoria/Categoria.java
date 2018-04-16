@@ -1,11 +1,14 @@
 package Categoria;
 
 public class Categoria {
-	String categoria = null;
+	String categoria;
 	long cotaInferior;
 	double cotaSuperior;
 	double cargoFijo ;
 	double cargoVariableFactor;
+	
+	
+	
 	public Categoria(String r,long cotaMin,double cotaMaxima,double fijo,double variablee) {
 		categoria=r;
 		cotaInferior=cotaMin;
@@ -13,8 +16,14 @@ public class Categoria {
 		cargoFijo=fijo;
 		cargoVariableFactor=variablee;
 	}
+	
+	
+	
+	
+	
 	//getter y setters
-	public String getCategoria() {
+	@Override
+	public String toString() {
 		return categoria;
 	}
 	public void setCategoria(String categoria) {
